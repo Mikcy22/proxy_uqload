@@ -38,11 +38,12 @@ app.get('/stream', async (req, res) => {
 
         // 2. Proxificar el vídeo desde el mismo servidor
         const videoResponse = await axios.get(videoUrl, {
-            responseType: 'stream',
-            headers: {
-                'Referer': embedUrl,
-                'User-Agent': 'Mozilla/5.0',
-            }
+          responseType: 'stream',
+          headers: {
+            'Referer': embedUrl,
+            'User-Agent': 'Mozilla/5.0',
+            'Cookie': 'tu_cookie_si_la_tienes'
+          }
         });
 
         // 3. Retransmitir al cliente
